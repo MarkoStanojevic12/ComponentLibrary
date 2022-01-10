@@ -6,4 +6,26 @@ Window {
     height: 480
     visible: true
     title: qsTr("Hello World")
+
+    Loader{
+        id: mainLoader
+        anchors.fill: parent
+
+        source: "./MainWindow.qml"
+
+        function reload(){
+            mainLoader.source = "";
+            QmlEngine.clearCache();
+            mainLoader.source = "./MainWindow.qml"
+        }
+    }
+
+    Connections{
+        target: QmlEngine
+
+        function onReloadUI(){
+            console.log("Reloading UI");
+            mainLoader.reload();
+        }
+    }
 }

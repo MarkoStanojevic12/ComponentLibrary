@@ -7,6 +7,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        core/ComponentCreatorEngine.cpp \
+        core/FileWatcher.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -21,3 +23,7 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    core/ComponentCreatorEngine.h \
+    core/FileWatcher.h

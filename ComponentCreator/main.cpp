@@ -1,5 +1,6 @@
 #include <QGuiApplication>
-#include <QQmlApplicationEngine>
+#include "core/ComponentCreatorEngine.h"
+#include <QQmlContext>
 
 int main(int argc, char *argv[])
 {
@@ -11,11 +12,16 @@ int main(int argc, char *argv[])
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     }
+    qputenv("MAIN_QML", "../ComponentLibrary/ComponentCreator/main.qml");
 
     QGuiApplication app(argc, argv);
 
-    QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    ComponentCreatorEngine engine;
+
+    engine.rootContext()->setContextProperty("QmlEngine", &engine);
+
+    const QUrl url(qgetenv("MAIN_QML"));
+
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
         &app, [url](QObject *obj, const QUrl &objUrl) {
             if (!obj && url == objUrl)
