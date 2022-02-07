@@ -1,8 +1,9 @@
 import QtQuick 2.0
 import Buttons 1.0
 import QtQuick.Layouts 1.0
-
-Item {
+import Colors 1.1
+Rectangle {
+    color: CustomColors.secondary
     CustomButtonGroup{
         id: buttonGroup
         buttons: {
@@ -12,7 +13,7 @@ Item {
             }
             return buttonList;
         }
-        preselectionIndex: 1
+        preselectionIndex: 0
     }
 
     ColumnLayout{
@@ -23,14 +24,14 @@ Item {
         CustomRadioTextButton{
             Layout.preferredHeight: 50
             Layout.preferredWidth: parent.width
+            radioText.text: "Light theme"
+            radioButton.onClicked: CustomColors.currentTheme = CustomColors.themes.light
         }
         CustomRadioTextButton{
             Layout.preferredHeight: 50
             Layout.preferredWidth: parent.width
-        }
-        CustomRadioTextButton{
-            Layout.preferredHeight: 50
-            Layout.preferredWidth: parent.width
+            radioText.text: "Dark theme"
+            radioButton.onClicked: CustomColors.currentTheme = CustomColors.themes.dark
         }
     }
 }

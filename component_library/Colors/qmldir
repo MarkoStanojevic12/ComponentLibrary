@@ -1,0 +1,4 @@
+module Colors
+
+singleton CustomColors 1.0 CustomColors_01.qml
+singleton CustomColors 1.1 CustomColors_02.qml

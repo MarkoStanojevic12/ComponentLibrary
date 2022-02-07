@@ -1,10 +1,11 @@
 import QtQuick 2.0
+import Colors 1.1
 
 Rectangle{
     id: outerCircle
     color: "transparent"
     border.width: 2
-    border.color: "blue"
+    border.color: CustomColors.primary
     radius: 100
     opacity: mouseArea.containsMouse ? 0.5 : 1
 
