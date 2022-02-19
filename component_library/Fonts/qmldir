@@ -1,0 +1,2 @@
+module Fonts
+singleton CustomFonts 1.0 CustomFonts_01.qml
