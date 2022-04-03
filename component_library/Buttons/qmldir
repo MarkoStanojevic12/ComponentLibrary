@@ -4,3 +4,5 @@ CustomButton 1.0 CustomButton_01.qml
 CustomButtonGroup 1.0 CustomButtonGroup_01.qml
 CustomRadioButton 1.0 CustomRadioButton_01.qml
 CustomRadioTextButton 1.0 CustomRadioTextButton_01.qml
+IconButton 1.0 IconButton_01.qml
+

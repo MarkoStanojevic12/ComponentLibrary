@@ -1,2 +1,3 @@
 module Fonts
-singleton CustomFonts 1.0 CustomFonts_01.qml
+singleton JosefinSans 1.0 JosefinSans_01.qml
+singleton Poppins 1.0 Poppins_01.qml
