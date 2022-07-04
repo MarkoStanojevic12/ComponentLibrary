@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     ComponentCreatorEngine engine;
-    engine.addImportPath("C:/Users/marko/Desktop/Youtube/Qt/ComponentLibrary/component_library");
+    engine.addImportPath("../component_library");
 
     engine.rootContext()->setContextProperty("QmlEngine", &engine);
 
