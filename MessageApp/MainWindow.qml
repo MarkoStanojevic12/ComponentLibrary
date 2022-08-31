@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.5
 
 import "./Contacts"
+import "./OpenedChat"
 
 Rectangle {
     id: mainWindow
@@ -15,4 +16,5 @@ Rectangle {
     }
 
     ContactsView{ id: contactsView; }
+    OpenedChatView{ id: openedChatView; }
 }

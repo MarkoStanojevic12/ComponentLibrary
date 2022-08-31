@@ -16,5 +16,8 @@ QtObject{
 
     readonly property string highlight: "#3e4f6b"
 
+    readonly property string backgroundDark: "#0B0F11"
+    readonly property string backgroundLight: "#20375B"
+
 
 }

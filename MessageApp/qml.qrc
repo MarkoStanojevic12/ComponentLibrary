@@ -7,5 +7,10 @@
         <file>Contacts/Components/Header.qml</file>
         <file>Contacts/Components/ContactList.qml</file>
         <file>Contacts/Components/ContactDelegate.qml</file>
+        <file>OpenedChat/OpenedChatView.qml</file>
+        <file>OpenedChat/Components/ChatInput.qml</file>
+        <file>OpenedChat/Components/ChatThread.qml</file>
+        <file>OpenedChat/Components/ChatBubble.qml</file>
+        <file>OpenedChat/Components/ChatHeader.qml</file>
     </qresource>
 </RCC>

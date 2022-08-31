@@ -87,6 +87,6 @@ Rectangle {
         id: mouseArea
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: console.log("Clicked")
+        onClicked: mainStack.push(openedChatView);
     }
 }
