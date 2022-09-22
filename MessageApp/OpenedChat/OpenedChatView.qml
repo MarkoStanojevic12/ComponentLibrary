@@ -6,6 +6,9 @@ import "./Components"
 
 Component{
     Rectangle {
+        id: openedChatViewRoot
+        readonly property var openedChatUser: Chat.openedChatUser
+
         gradient: Gradient{
             orientation: Gradient.Horizontal
             GradientStop{ position: 0.0; color: CustomColors.backgroundDark; }

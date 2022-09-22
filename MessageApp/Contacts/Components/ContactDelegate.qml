@@ -9,7 +9,7 @@ Rectangle {
     color: "transparent"
     radius: 100
 
-    property var contactData: contacts.get(index)
+    property var contactData: contactsListView.model[index];
 
     Rectangle{
         id: hoverBackground
@@ -60,7 +60,7 @@ Rectangle {
             Layout.topMargin: -4
 
             Text{
-                text: contactData.name
+                text: contactData.name + " " + contactData.lastName
                 color: CustomColors.plainWhite
                 font.pixelSize: 14
                 Layout.fillWidth: true
@@ -70,7 +70,7 @@ Rectangle {
                 verticalAlignment: Qt.AlignBottom
             }
             Text{
-                text: contactData.lastMessage
+                text: contactData.messages.length === 0 ? "" : contactData.messages[contactData.messages.length-1].contents
                 color: CustomColors.plainWhite
                 font.pixelSize: 12
                 Layout.fillWidth: true
@@ -87,6 +87,9 @@ Rectangle {
         id: mouseArea
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: mainStack.push(openedChatView);
+        onClicked: {
+            Chat.openedChatUser = contactData;
+            mainStack.push(openedChatView);
+        }
     }
 }

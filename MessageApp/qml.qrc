@@ -12,5 +12,6 @@
         <file>OpenedChat/Components/ChatThread.qml</file>
         <file>OpenedChat/Components/ChatBubble.qml</file>
         <file>OpenedChat/Components/ChatHeader.qml</file>
+        <file>Media/Images/avatar.jpg</file>
     </qresource>
 </RCC>

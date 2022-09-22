@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include "core/ComponentCreatorEngine.h"
 #include <QQmlContext>
+#include "ApplicationManager.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +21,11 @@ int main(int argc, char *argv[])
     ComponentCreatorEngine engine;
     engine.addImportPath("../component_library");
 
+    ApplicationManager* appManager = new ApplicationManager(&engine);
+
     engine.rootContext()->setContextProperty("QmlEngine", &engine);
+    engine.rootContext()->setContextProperty("Chat", appManager->chat());
+    engine.rootContext()->setContextProperty("Users", appManager->chat()->userList());
 
     const QUrl url(qgetenv("MAIN_QML"));
 

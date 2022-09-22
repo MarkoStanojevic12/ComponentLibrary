@@ -68,19 +68,7 @@ Rectangle {
         if(messageField.text == "")
             return;
 
-        let isSender = Math.random() > 0.5;
-        console.log("Sending message");
-        let currentTime = new Date();
-        let hours = currentTime.getHours() < 10 ? "0" + currentTime.getHours() : currentTime.getHours();
-        let minutes = currentTime.getMinutes() < 10 ? "0" + currentTime.getMinutes() : currentTime.getMinutes();
-
-        chatThread.chat.append({
-            "sender": isSender,
-            "message": messageField.text,
-            "time": hours + ":" + minutes
-        });
-
+        Chat.sendMessage(messageField.text);
         messageField.text = "";
-
     }
 }

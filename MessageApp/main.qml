@@ -7,6 +7,9 @@ Window {
     visible: true
     title: qsTr("Message App")
     color: "transparent"
+
+    flags: Qt.WindowStaysOnTopHint
+
     Loader{
         id: mainLoader
         anchors.fill: parent
