@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import Buttons 1.0
 import QtQuick.Layouts 1.0
 import Colors 1.1
@@ -7,10 +7,13 @@ import Fonts 1.0
 import Icons 1.0
 
 Rectangle {
-    Icon{
-        anchors.centerIn: parent
-        path: IconVault.android
-        width: 500
-        height: 500
+    gradient: Gradient {
+        orientation: Gradient.Horizontal
+        stops:[
+            GradientStop { position: 0.0; color: "#000000" },
+            GradientStop { position: 1.0; color: "#323232" }
+        ]
     }
+
+
 }

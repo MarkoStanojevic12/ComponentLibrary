@@ -35,7 +35,7 @@ Item {
                 Layout.topMargin: 4
             }
             Text{
-                text: "Jon Doe"
+                text: Chat.mainUser.name + " " + Chat.mainUser.lastName
                 color: CustomColors.plainWhite
                 font.pixelSize: 16
                 Layout.fillWidth: true

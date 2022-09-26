@@ -30,11 +30,11 @@ Item {
         Image{
             id: background
             property bool adapt: true
-            source: "../../Media/Images/Marko.jpg"
+            source: openedChatViewRoot.openedChatUser === null ? "" : openedChatViewRoot.openedChatUser.imageURL;
             Layout.preferredHeight: parent.height
             Layout.preferredWidth: height
             asynchronous: true
-            fillMode: Image.Stretch
+            fillMode: Image.PreserveAspectCrop
             layer.enabled: true
             layer.effect: OpacityMask {
                 maskSource: Item {
@@ -55,7 +55,7 @@ Item {
             Layout.alignment: Qt.AlignVCenter
             spacing: -2
             Text{
-                text: "Marko Stanojevic"
+                text: openedChatViewRoot.openedChatUser === null ? "" : openedChatViewRoot.openedChatUser.name + " " + openedChatViewRoot.openedChatUser.lastName
                 color: CustomColors.plainWhite
                 font.pixelSize: 14
                 font.family: Poppins.medium
@@ -64,7 +64,7 @@ Item {
                 elide: Text.ElideRight
             }
             Text{
-                text: "Online"
+                text: openedChatViewRoot.openedChatUser === null ? qsTr("Offline") : (openedChatViewRoot.openedChatUser.isOnline ? qsTr("Online") : qsTr("Offline"))
                 color: CustomColors.plainWhite
                 font.pixelSize: 12
                 opacity: 0.35

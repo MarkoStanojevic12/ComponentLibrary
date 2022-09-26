@@ -7,6 +7,11 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        ApplicationManager.cpp \
+        User/Chat.cpp \
+        User/Message.cpp \
+        User/User.cpp \
+        User/UserList.cpp \
         core/ComponentCreatorEngine.cpp \
         core/FileWatcher.cpp \
         main.cpp
@@ -25,6 +30,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    ApplicationManager.h \
+    User/Chat.h \
+    User/Message.h \
+    User/User.h \
+    User/UserList.h \
     core/ComponentCreatorEngine.h \
     core/FileWatcher.h
 
