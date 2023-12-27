@@ -9,9 +9,11 @@ CONFIG += c++11
 SOURCES += \
         ApplicationManager.cpp \
         User/Chat.cpp \
+        User/ChatList.cpp \
         User/Message.cpp \
         User/User.cpp \
         User/UserList.cpp \
+        User/UserProxyList.cpp \
         core/ComponentCreatorEngine.cpp \
         core/FileWatcher.cpp \
         main.cpp
@@ -32,9 +34,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     ApplicationManager.h \
     User/Chat.h \
+    User/ChatList.h \
     User/Message.h \
     User/User.h \
     User/UserList.h \
+    User/UserProxyList.h \
     core/ComponentCreatorEngine.h \
     core/FileWatcher.h
 

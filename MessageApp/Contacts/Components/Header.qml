@@ -101,6 +101,8 @@ Item {
                 clip: true
                 wrapMode: Text.WrapAnywhere
 
+                onTextChanged: Users.setFilterFixedString(text)
+
                 Shortcut{
                     sequence: searchButton.isMaximized ? "Esc" : ""
                     onActivated: headerRoot.searchToggled = false;

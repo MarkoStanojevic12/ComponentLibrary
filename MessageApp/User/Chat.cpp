@@ -4,10 +4,13 @@
 Chat::Chat(QObject *parent) :
     QObject(parent),
     m_userList(new UserList(this)),
+    m_userProxyList(new UserProxyList(this)),
     m_mainUser(new User(0, "Sam", "Samsun", "", this)),
     m_openedChatUser(Q_NULLPTR)
 {
     connect(this, &Chat::sendMessage, this, &Chat::onSendMessage, Qt::QueuedConnection);
+
+    m_userProxyList->setSourceModel(m_userList);
 }
 
 UserList *Chat::userList() const
@@ -38,4 +41,9 @@ void Chat::onSendMessage(const QString &message)
     if(m_openedChatUser == Q_NULLPTR)
         return;
     m_openedChatUser->addMessage(new Message(message, m_mainUser->ID(), m_openedChatUser));
+}
+
+UserProxyList *Chat::userProxyList() const
+{
+    return m_userProxyList;
 }

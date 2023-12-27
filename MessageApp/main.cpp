@@ -25,7 +25,9 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("QmlEngine", &engine);
     engine.rootContext()->setContextProperty("Chat", appManager->chat());
-    engine.rootContext()->setContextProperty("Users", appManager->chat()->userList());
+    engine.rootContext()->setContextProperty("Users", appManager->chat()->userProxyList());
+
+    qRegisterMetaType<Message*>("Message*");
 
     const QUrl url(qgetenv("MAIN_QML"));
 

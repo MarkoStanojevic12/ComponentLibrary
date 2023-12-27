@@ -5,7 +5,9 @@ User::User(int id, const QString &name, const QString &lastName, const QString &
     m_ID(id),
     m_name(name),
     m_lastName(lastName),
-    m_imageURL(imageURL == "" ? "qrc:/Media/Images/avatar.jpg" : imageURL)
+    m_imageURL(imageURL == "" ? "qrc:/Media/Images/avatar.jpg" : imageURL),
+    m_messages(new ChatList(this)),
+    m_isOnline(false)
 {
 
 }
@@ -51,21 +53,13 @@ void User::setIsOnline(bool newIsOnline)
     emit isOnlineChanged();
 }
 
-const QList<Message *> &User::messages() const
-{
-    return m_messages;
-}
-
-void User::setMessages(const QList<Message *> &newMessages)
-{
-    if (m_messages == newMessages)
-        return;
-    m_messages = newMessages;
-    emit messagesChanged();
-}
-
 void User::addMessage(Message *message)
 {
-    m_messages.append(message);
+    m_messages->append(message);
     emit messagesChanged();
+}
+
+ChatList *User::messages() const
+{
+    return m_messages;
 }
