@@ -52,7 +52,7 @@ Item {
             width: parent.width
             spacing: 18
             clip: true
-            model: Users.users
+            model: Users
             delegate: ContactDelegate{
                 height: 65
                 width: contactsListView.width

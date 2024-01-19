@@ -9,9 +9,8 @@ Item {
     width: bubble.width
     x: sender ? 0 : openedChatList.width - width
 
-    readonly property var message: openedChatList.model[index]
-    readonly property bool sender: message.userID == Chat.mainUser.ID
-    property bool shouldShowTime: openedChatList.count -1 === index ? true : openedChatList.model[index+1].userID !== Chat.mainUser.ID
+    readonly property bool sender: userID == Chat.mainUser.ID
+    property bool shouldShowTime: openedChatList.count - 1 === index ? true : openedChatList.model.at(index+1).userID !== Chat.mainUser.ID
 
     Rectangle{
         id: bubble
@@ -27,7 +26,7 @@ Item {
 
         Text{
             id: messageText
-            text: message.contents
+            text: contents
             anchors.fill: parent
             anchors.margins: 12
             wrapMode: Label.Wrap
@@ -43,7 +42,7 @@ Item {
         anchors.top: bubble.bottom; anchors.topMargin: 10
         anchors.right: sender ? undefined : parent.right
         horizontalAlignment: sender ? Qt.AlignLeft : Qt.AlignRight
-        text: message.time
+        text: time
         width: bubble.width
         height: 20
         color: CustomColors.plainWhite

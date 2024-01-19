@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "UserList.h"
+#include "UserProxyList.h"
 
 class Chat : public QObject
 {
@@ -19,6 +20,8 @@ public:
 
     User *mainUser() const;
 
+    UserProxyList *userProxyList() const;
+
 signals:
     void openedChatUserChanged();
     void sendMessage(const QString& message);
@@ -28,6 +31,7 @@ public Q_SLOTS:
 
 private:
     UserList* m_userList;
+    UserProxyList* m_userProxyList;
     User* m_mainUser;
     User* m_openedChatUser;
 };

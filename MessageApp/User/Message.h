@@ -20,7 +20,8 @@ private:
     QString m_contents;
     QString m_time;
     int m_userID;
-
 };
+
+Q_DECLARE_METATYPE(Message*)
 
 #endif // MESSAGE_H

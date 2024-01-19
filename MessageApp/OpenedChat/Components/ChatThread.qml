@@ -20,7 +20,7 @@ Item {
 
         delegate: ChatBubble{}
 
-        displaced: Transition{
+        add: Transition{
             NumberAnimation{ properties: "x"; from: openedChatList.width/2; duration: 1500; easing.type: Easing.OutBounce; }
         }
 

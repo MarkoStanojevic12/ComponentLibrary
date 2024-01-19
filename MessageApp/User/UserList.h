@@ -1,18 +1,32 @@
 #ifndef USERLIST_H
 #define USERLIST_H
 
-#include <QObject>
+#include <QAbstractListModel>
 #include "User.h"
 
-class UserList : public QObject
+class UserList : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QList<User *> users READ users WRITE setUsers NOTIFY usersChanged)
 public:
+    enum UserRoles {
+        IDRole = Qt::UserRole + 1,
+        NameRole,
+        LastNameRole,
+        ImageURLRole,
+        MessagesRole,
+        IsOnlineRole,
+        UserObjectRole
+    };
+
     UserList(QObject* parent);
 
     const QList<User *> &users() const;
     void setUsers(const QList<User *> &newUsers);
+
+    int rowCount(const QModelIndex &parent) const;
+    QVariant data(const QModelIndex &index, int role) const;
+    bool setData(const QModelIndex &index, const QVariant &value, int role);
+    QHash<int, QByteArray> roleNames() const;
 
 signals:
     void usersChanged();

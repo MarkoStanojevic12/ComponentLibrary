@@ -6,10 +6,10 @@ import Colors 1.0
 import Fonts 1.0
 
 Rectangle {
+    property var contactData: Users.get(index)
+
     color: "transparent"
     radius: 100
-
-    property var contactData: contactsListView.model[index];
 
     Rectangle{
         id: hoverBackground
@@ -32,7 +32,7 @@ Rectangle {
 
         Image{
             id: profileImage
-            source: contactData.imageURL
+            source: imageURL
             Layout.preferredHeight: parent.height
             Layout.preferredWidth: height
             asynchronous: true
@@ -60,7 +60,7 @@ Rectangle {
             Layout.topMargin: -4
 
             Text{
-                text: contactData.name + " " + contactData.lastName
+                text: name + " " + lastName
                 color: CustomColors.plainWhite
                 font.pixelSize: 14
                 Layout.fillWidth: true
@@ -70,7 +70,7 @@ Rectangle {
                 verticalAlignment: Qt.AlignBottom
             }
             Text{
-                text: contactData.messages.length === 0 ? "" : contactData.messages[contactData.messages.length-1].contents
+                text: messages.count === 0 ? "" : messages.at(contactData.messages.count-1).contents
                 color: CustomColors.plainWhite
                 font.pixelSize: 12
                 Layout.fillWidth: true
